@@ -3,11 +3,11 @@ import morgan from "morgan";
 import express, { Request, Response } from "express";
 import cors from "cors";
 
-import { router } from "./routes/index.ts";
+import { router } from "./routes/index";
 //import { itemRoute } from "./routes/item.ts";
 
-import { PORT } from "./config.ts";
-import "./db.ts";
+import { PORT } from "./config";
+import "./db";
 
 const app = express();
 

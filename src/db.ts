@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { connect } from "mongoose";
-import { DB_URI } from "./config.ts";
+import { DB_URI } from "./config";
 
 (async function dbConnect(): Promise<void> {
   try {

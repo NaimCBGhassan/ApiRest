@@ -14,7 +14,7 @@ This is a backend project made with MongoDB Atlas as the database, where you wil
 - **./api/order**: with one GET operation. To access this route, you will need to send JSON Web Token in the header. To obtain the token, you must first log in.
 </p>
 
-<img src="./src/image.webp" alt="API REST"/>
+<img src="./src/image.webp" alt="API REST" width="100%"/>
 
 <hr/>
 

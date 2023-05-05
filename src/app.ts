@@ -6,7 +6,8 @@ import cors from "cors";
 import { router } from "./routes/index.ts";
 //import { itemRoute } from "./routes/item.ts";
 
-const PORT = process.env.PORT || 5000;
+import { PORT } from "./config.ts";
+import "./db.ts";
 
 const app = express();
 
@@ -17,6 +18,5 @@ app.use(express.json());
 app.use(router);
 
 //   ROUTES
-//app.use("/api", itemRoute);
 
 app.listen(PORT, () => console.log(`Server running on port: ${PORT}`));

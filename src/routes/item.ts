@@ -1,10 +1,15 @@
-import { Request, Response, Router } from "express";
+import { Router } from "express";
+import { deleteItem, getItem, getItems, postItem, updateItem } from "../controllers/item";
+import { logMiddleware } from "../middlewares/log";
 
-const itemRoute = Router();
+const router = Router();
 
-// GET ITEMS
-itemRoute.get("/items", (req: Request, res: Response) => {
-  res.send("hola");
-});
+/* http://localhost:5000/api/items */
 
-export { itemRoute };
+router.get("/", getItems); //[GET]s Items
+router.get("/:id", [logMiddleware], getItem); //[GET] Item
+router.put("/:id", updateItem); //[PUT] Items
+router.post("/", postItem); //[POST] Items
+router.delete("/:id", deleteItem); //[DELETE] Items
+
+export { router };

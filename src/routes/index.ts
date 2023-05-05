@@ -2,7 +2,6 @@ import { Router } from "express";
 import { readdirSync } from "fs";
 
 const PATH_ROUTER = `${__dirname}`;
-console.log(PATH_ROUTER);
 
 const router = Router();
 
@@ -16,7 +15,12 @@ const cleanFileName = (fileName: string) => {
 };
 
 readdirSync(PATH_ROUTER).filter((fileName) => {
-  console.log(cleanFileName(fileName));
+  const cleanName = cleanFileName(fileName);
+  if (cleanName !== "index") {
+    import(`./${cleanName}`).then((moduleRouter) => {
+      router.use(`/api/${cleanName}`, moduleRouter.router);
+    });
+  }
 });
 
 export { router };
